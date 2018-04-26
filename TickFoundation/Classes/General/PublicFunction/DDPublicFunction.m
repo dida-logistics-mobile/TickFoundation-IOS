@@ -34,12 +34,9 @@
         DDLogInfo(@"电话|号码为空");
         return;
     }
-    UIWebView *webview = [[UIWebView alloc] init];
-    NSString *number = [NSString stringWithFormat:@"tel:%@",phone];
-    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:number]]];
-    [view addSubview:webview];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [webview removeFromSuperview];
+    NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@", phone];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
     });
 }
 

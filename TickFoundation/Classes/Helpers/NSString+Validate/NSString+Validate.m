@@ -38,7 +38,40 @@
 }
 
 - (BOOL)dd_isWeightFormat{
-    NSString *regex = @"^(([1-9]\\d{0,9})|0)(\\.\\d{1,2})?$";//@"^[0-9]{1,10}$|^[0-9]{0,9}\\.[0-9]{0,1}$|^[0-9]{0,8}\\.[0-9]{0,2}$";
+    NSString *regex = @"^(([1-9]\\d{0,9})|0)(\\.\\d{1,4})?$";//@"^[0-9]{1,10}$|^[0-9]{0,9}\\.[0-9]{0,1}$|^[0-9]{0,8}\\.[0-9]{0,2}$";
+    return [self dd_validWithRegex:regex];
+}
+
+///社会信用代码
+- (BOOL)dd_isUcodeRegularFormat{
+    NSString *regex = @"^[\\da-zA-Z]{15}$|^[\\da-zA-Z]{18}$|^[\\da-zA-Z]{20}$";
+    return [self dd_validWithRegex:regex];
+}
+
+///密码校验
+- (BOOL)dd_isPwdFormat{
+    NSString *regex = @"^(?![\\d]+$)(?![a-zA-Z]+$)(?![^\\da-zA-Z]+$).{6,20}$";
+    return [self dd_validWithRegex:regex];
+}
+
+///用户名校验
+- (BOOL)dd_isUsernameFormat{
+    NSString *regex = @"^[A-Za-z][A-Za-z0-9]{0,19}$";
+    return [self dd_validWithRegex:regex];
+}
+
+- (BOOL)dd_isMobileOrTelephoneFormat{
+    NSString *regex = @"(^(0[0-9]{2,3}[\\-]?)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?$)|(^((\\(\\d{3}\\))|(\\d{3}[\\-]?))?(1\\d{10})$)";
+    return [self dd_validWithRegex:regex];
+}
+
+- (BOOL)dd_isPostalcode{
+    NSString *regex = @"[0-9]\\d{5}(?!\\d)";
+    return [self dd_validWithRegex:regex];
+}
+
+- (BOOL)dd_isBankCard{
+    NSString *regex = @"^\\d{15,30}$";
     return [self dd_validWithRegex:regex];
 }
 

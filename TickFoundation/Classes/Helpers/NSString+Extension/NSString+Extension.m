@@ -68,9 +68,82 @@
     }
 }
 
++ (NSString *)dd_floatFormatStringWithFourDecimal:(CGFloat)floatValue{
+    NSString *value = nil;
+    NSString *unit = @"";
+    if(floatValue > 100000000){
+        unit = @"亿";
+        value = [NSString stringWithFormat:@"%.4f",floatValue/100000000.0f];
+    }else if(floatValue > 10000){
+        unit = @"万";
+        value = [NSString stringWithFormat:@"%.4f",floatValue/10000.0f];
+    }else{
+        value = [NSString stringWithFormat:@"%.4f",floatValue];
+    }
+    
+    while (1) {
+        
+        if([value rangeOfString:@"."].location == NSNotFound){
+            break;
+        }
+        
+        if([value hasSuffix:@"."]){
+            value = [value substringToIndex:value.length-1];
+            break;
+        }
+        
+        if(value.length > 0 && [value hasSuffix:@"0"]){
+            value = [value substringToIndex:value.length-1];
+        }else{
+            break;
+        }
+    }
+    
+    return [value stringByAppendingString:unit];
+}
+
 + (NSString *)dd_stringWithFloat:(CGFloat)floatValue{
-    NSDecimalNumber *number = [[NSDecimalNumber alloc] initWithFloat:floatValue];
+    NSDecimalNumber *number = [[NSDecimalNumber alloc] initWithDouble:floatValue];
     return [number stringValue];
+}
+
++ (NSString *)dd_stringWithFloatWithFourDecimal:(CGFloat)floatValue{
+    NSString *value = [NSString stringWithFormat:@"%.4f",floatValue];
+    
+    while (1) {
+        if([value rangeOfString:@"."].location == NSNotFound){
+            break;
+        }
+        
+        if([value hasSuffix:@"."]){
+            value = [value substringToIndex:value.length-1];
+            break;
+        }
+        
+        if(value.length > 0 && [value hasSuffix:@"0"]){
+            value = [value substringToIndex:value.length-1];
+        }else{
+            break;
+        }
+    }
+    
+    return value;
+}
+
++ (NSString *)dd_stringWithFloatWithTwoDecimal:(CGFloat)floatValue{
+    NSString *value = [NSString stringWithFormat:@"%.2f",floatValue];
+    
+    return value;
+}
+
++ (NSString *)dd_stringWithFloatWithCommaAndTwoDecimal:(CGFloat)floatValue{
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setPositiveFormat:@"###,##0.00;"];
+    
+    NSString *value = [formatter stringFromNumber:@(floatValue)];
+    
+    return value;
 }
 
 @end

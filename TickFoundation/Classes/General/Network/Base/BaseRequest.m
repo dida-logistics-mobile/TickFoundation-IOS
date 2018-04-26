@@ -14,9 +14,13 @@
 #import "NSString+Extension.h"
 #import "LoggerManager.h"
 #import "DDNotifications.h"
+#import "DDLogCollection.h"
+#import <AFNetworking/AFNetworkReachabilityManager.h>
 
 NSInteger successCode = 1; //成功
 NSInteger failureCode = 0; //失败
+NSInteger refreshCode = 2; //刷新
+NSInteger notExistCode = 3; //不存在
 NSInteger alreadyExistCode = 15; //已存在
 NSInteger notLoginCode = 999; //未登录
 NSInteger notInfoAdd = 120; //未维护
@@ -26,6 +30,9 @@ NSInteger dialogCode = 140; //对话框
 NSInteger networkErrorCode = -100; //网络错误
 
 @implementation BaseRequest
+{
+    NSTimeInterval _startTime;
+}
 
 -(YTKRequestMethod)requestMethod
 {
@@ -38,6 +45,14 @@ NSInteger networkErrorCode = -100; //网络错误
 
 - (YTKResponseSerializerType)responseSerializerType{
     return YTKResponseSerializerTypeHTTP;
+}
+
+- (id)requestArgument{
+    if([NetworkConfig sharedInstance].commonRequestArgument){
+        return [NSMutableDictionary dictionaryWithDictionary:[NetworkConfig sharedInstance].commonRequestArgument];
+    }else{
+        return [NSMutableDictionary dictionary];
+    }
 }
 
 - (Class)responseClass
@@ -72,11 +87,35 @@ NSInteger networkErrorCode = -100; //网络错误
     }
     [self decodeData:[dataStr dd_jsonObject] response:response];
     
+    DDLogInfo(@"网络请求|url(%@),code(%ld),message(%@)",[self requestUrl],response.code,response.message);
+    
     return response;
 }
 
 - (void)decodeData:(id)data response:(BaseResponse *)response{
     
+}
+
+- (void)requestCompleteFilter{
+    NSTimeInterval time = CACurrentMediaTime()-_startTime;
+    if(time > 20){
+        [[DDLogCollection sharedInstance] addApiAckTimeWithUrl:[[YTKNetworkAgent sharedAgent] buildRequestUrl:self] seconds:time];
+    }
+}
+
+- (void)requestFailedFilter{
+    [[DDLogCollection sharedInstance] addApiErrorWithUrl:[[YTKNetworkAgent sharedAgent] buildRequestUrl:self] desc:[self.error description]];
+}
+
+- (void)startWithCompletionBlockWithSuccess:(YTKRequestCompletionBlock)success failure:(YTKRequestCompletionBlock)failure{
+    if([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus == AFNetworkReachabilityStatusNotReachable){
+        failure(nil);
+        return;
+    }
+    
+    _startTime = CACurrentMediaTime();
+    
+    [super startWithCompletionBlockWithSuccess:success failure:failure];
 }
 
 @end

@@ -34,7 +34,7 @@ return shared##className; \
 #define IOS7_OR_LATER   ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending)
 
 #define kScreenHeight               [[UIScreen mainScreen] bounds].size.height
-#define kScreenWidth                ([[UIScreen mainScreen] applicationFrame].size.width)
+#define kScreenWidth                ([[UIScreen mainScreen] bounds].size.width)
 
 #define IsEmptyString(str) (([str isKindOfClass:[NSString class]] && str.length == 0) || ([str isKindOfClass:[NSNull class]]) || str == nil)
 
@@ -45,7 +45,6 @@ return shared##className; \
 #define NullToNil(a) ([(a) isKindOfClass:[NSNull class]] ? nil : (a))
 #define NilToEmptyString(str) ((str) ? (str) : @"")
 #define IntToString(i) [NSString stringWithFormat:@"%ld",(long)(i)]
-
 
 #define LocalizedString(str) NSLocalizedString(str, nil)
 

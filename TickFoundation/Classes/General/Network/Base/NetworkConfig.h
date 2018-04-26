@@ -16,7 +16,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER
 
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSDictionary *commonRequestArgument;
 
 - (void)setBaseUrl:(NSString *)url;
+
+- (void)setCommonRequestArgument:(NSDictionary *)dic;
 
 @end

@@ -23,6 +23,10 @@
 //    CGContextAddRect(context, CGRectMake(p.x, p.y, width, height));
 //    CGContextFillPath(context);
     
+    if(text == nil){
+        return;
+    }
+    
     CGSize size = CGSizeMake(width, font.pointSize+10);
     CGContextSetTextMatrix(context,CGAffineTransformIdentity);
     CGContextTranslateCTM(context,0,height);

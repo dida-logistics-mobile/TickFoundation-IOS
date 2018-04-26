@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Dida
+
+  Created by yangbo on 16/12/8.
+  Copyright © 2016年 Dida. All rights reserved.
+*/
+
+"YuanPerTone" = "元/吨";
+"YuanPerCube" = "元/立方";
+"Yuan" = "元";
+"Cube" = "立方";
+"Ton" = "吨";

@@ -17,7 +17,7 @@
  驾驶证编码：即身份证
  车牌号：7位
  金额：做多10位，最多2位小数
- 吨位/立方：最多10位，最多2位小数
+ 吨位/立方：最多10位，最多4位小数
  */
 @interface NSString (Validate)
 
@@ -35,4 +35,23 @@
 
 ///重量验证
 - (BOOL)dd_isWeightFormat;
+
+///社会信用代码
+- (BOOL)dd_isUcodeRegularFormat;
+
+///密码校验
+- (BOOL)dd_isPwdFormat;
+
+///用户名校验
+- (BOOL)dd_isUsernameFormat;
+
+//固话手机号校验
+- (BOOL)dd_isMobileOrTelephoneFormat;
+
+///邮政编码校验
+- (BOOL)dd_isPostalcode;
+
+///银行卡号校验
+- (BOOL)dd_isBankCard;
+
 @end

@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define DDSuccessCode @"1"
-
 @interface BaseResponse : NSObject
 
 @property (nonatomic) NSInteger code;

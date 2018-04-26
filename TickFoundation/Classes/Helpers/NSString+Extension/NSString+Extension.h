@@ -25,10 +25,22 @@
 ///字符串转日期
 - (NSDate *)dd_dateWithFormat:(NSString *)format;
 
-///float转字符串 用于显示
+///float转字符串 用于显示 保留两位小数
 + (NSString *)dd_floatFormatString:(CGFloat)floatValue;
+
+///float转字符串 用于显示 最多保留四位小数
++ (NSString *)dd_floatFormatStringWithFourDecimal:(CGFloat)floatValue;
 
 ///float转字符串
 + (NSString *)dd_stringWithFloat:(CGFloat)floatValue;
+
+///float转字符串，最多保留四位小数
++ (NSString *)dd_stringWithFloatWithFourDecimal:(CGFloat)floatValue;
+
+///float转字符串，最多保留两位小数
++ (NSString *)dd_stringWithFloatWithTwoDecimal:(CGFloat)floatValue;
+
+///float转字符串，保留两位小数 逗号分隔
++ (NSString *)dd_stringWithFloatWithCommaAndTwoDecimal:(CGFloat)floatValue;
 
 @end

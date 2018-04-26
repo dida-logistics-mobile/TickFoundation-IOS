@@ -18,4 +18,8 @@ DEFINE_SINGLETON_FOR_CLASS(NetworkConfig)
     [[YTKNetworkConfig sharedConfig] setBaseUrl:url];
 }
 
+- (void)setCommonRequestArgument:(NSDictionary *)dic{
+    _commonRequestArgument = dic;
+}
+
 @end

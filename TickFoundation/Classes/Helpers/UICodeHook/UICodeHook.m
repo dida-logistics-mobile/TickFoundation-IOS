@@ -17,7 +17,6 @@
     dispatch_once(&onceToken, ^{
         [UIView hookMethod:@selector(setNeedsLayout) swizzledSelector:@selector(dd_setNeedsLayout)];
         [UIView hookMethod:@selector(setNeedsDisplay) swizzledSelector:@selector(dd_setNeedsDisplay)];
-        [UIView hookMethod:@selector(setNeedsDisplayInRect) swizzledSelector:@selector(dd_setNeedsDisplayInRect)];
     });
 }
 
@@ -35,12 +34,6 @@
     NSAssert([NSThread isMainThread], @"UI update is not at main thread");
 }
 
-- (void)dd_setNeedsDisplayInRect
-{
-    [self dd_setNeedsDisplayInRect];
-    
-    NSAssert([NSThread isMainThread], @"UI update is not at main thread");
-}
 
 + (void)hookMethod:(SEL)originalSelector swizzledSelector:(SEL)swizzledSelector
 {

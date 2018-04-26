@@ -16,7 +16,7 @@
 {
     NSData *resultData = [DDSecurity md5WithData:[string dataUsingEncoding:NSUTF8StringEncoding]];
     
-    unsigned char *digest = [resultData bytes];
+    unsigned char *digest = (unsigned char *)[resultData bytes];
     
     return [NSString stringWithFormat: @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
             digest[0],  digest[1],

@@ -83,6 +83,14 @@
     hud.animationType = MBProgressHUDAnimationFade;
     hud.userInteractionEnabled = NO;
     [hud show:YES];
+    
+    CGFloat delay = 2;
+    if(title.length < 15){
+        delay = 2;
+    }else{
+        delay = 3;
+    }
+    
     [hud hide:YES afterDelay:2];
 }
 

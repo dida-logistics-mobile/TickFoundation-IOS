@@ -11,6 +11,8 @@
 
 extern NSInteger successCode ; //成功
 extern NSInteger failureCode ; //失败
+extern NSInteger refreshCode; //刷新
+extern NSInteger notExistCode; //不存在
 extern NSInteger alreadyExistCode; //已存在
 extern NSInteger notLoginCode; //未登录
 extern NSInteger notInfoAdd; //未维护
