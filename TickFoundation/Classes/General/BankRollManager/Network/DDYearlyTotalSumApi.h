@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dida. All rights reserved.
 //
 
-#import <DiDaFoundation/BaseRequest.h>
+#import <TickFoundation/BaseRequest.h>
 
 ///年度成交额
 @interface DDYearlyTotalSumApi : BaseRequest

@@ -33,7 +33,7 @@
         
         BOOL isShowTip = [[[NSUserDefaults standardUserDefaults] objectForKey:@"dd_isShowFilterTip"] boolValue];
         if(!isShowTip){
-            NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"DiDaFoundation" ofType:@"bundle"]];
+            NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"TickFoundation" ofType:@"bundle"]];
             UIImage *image = [UIImage imageWithContentsOfFile:[bundle pathForResource:@"btn_click" ofType:@"png"]];
             
             UIView *tipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width-width, self.height)];

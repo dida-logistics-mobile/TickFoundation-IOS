@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dida. All rights reserved.
 //
 
-#import <DiDaFoundation/BaseModel.h>
+#import <TickFoundation/BaseModel.h>
 ///充值列表信息
 @interface DDRechargeModel : BaseModel
 

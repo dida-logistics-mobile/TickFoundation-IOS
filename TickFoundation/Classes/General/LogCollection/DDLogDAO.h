@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <DiDaFoundation/DBManager.h>
+#import <TickFoundation/DBManager.h>
 #import "DDLogModel.h"
 
 ///日志数据库

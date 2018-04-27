@@ -17,7 +17,7 @@
 + (NSString *)dd_localizedStringForKey:(NSString *)key value:(NSString *)value {
     static NSBundle *bundle = nil;
     if (bundle == nil) {
-        bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"DiDaFoundation" ofType:@"bundle"]];
+        bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"TickFoundation" ofType:@"bundle"]];
     }
     NSString *value1 = [bundle localizedStringForKey:key value:value table:nil];
     return value1;

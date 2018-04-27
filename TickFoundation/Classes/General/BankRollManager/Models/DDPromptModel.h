@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dida. All rights reserved.
 //
 
-#import <DiDaFoundation/BaseModel.h>
+#import <TickFoundation/BaseModel.h>
 
 ///公司账户信息
 @interface DDPromptModel : BaseModel

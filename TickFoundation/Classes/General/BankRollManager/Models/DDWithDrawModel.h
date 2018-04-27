@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dida. All rights reserved.
 //
 
-#import <DiDaFoundation/BaseModel.h>
+#import <TickFoundation/BaseModel.h>
 
 @interface DDWithDrawModel : BaseModel
 

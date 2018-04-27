@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dida. All rights reserved.
 //
 
-#import <DiDaFoundation/BaseRequest.h>
+#import <TickFoundation/BaseRequest.h>
 
 ///交易流水
 @interface DDAccountFlowListApi : BaseRequest

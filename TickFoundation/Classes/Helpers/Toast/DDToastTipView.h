@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dida. All rights reserved.
 //
 
-#import <DiDaFoundation/DDTipView.h>
+#import <TickFoundation/DDTipView.h>
 
 @interface DDToastTipView : DDTipView
 

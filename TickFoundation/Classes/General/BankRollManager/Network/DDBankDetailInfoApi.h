@@ -6,7 +6,7 @@
 //
 //
 
-#import <DiDaFoundation/BaseRequest.h>
+#import <TickFoundation/BaseRequest.h>
 #import "DDBankModel.h"
 
 @interface DDBankDetailInfoApi : BaseRequest

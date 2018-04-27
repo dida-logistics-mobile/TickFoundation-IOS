@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Dida. All rights reserved.
 //
 
-#import <DiDaFoundation/BaseRequest.h>
+#import <TickFoundation/BaseRequest.h>
 
 ///忘记密码（获取验证码）
 @interface DDForgetPwdApi : BaseRequest

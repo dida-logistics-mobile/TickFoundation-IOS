@@ -7,7 +7,7 @@
 //
 
 #import "DDLogCollection.h"
-#import <DiDaFoundation/DBManager.h>
+#import <TickFoundation/DBManager.h>
 #import "DDLogDAO.h"
 #import "DDUploadLogApi.h"
 #import <AFNetworking/AFNetworking.h>
