@@ -26,5 +26,6 @@
 @property (nonatomic , copy) NSString              * docuNum;
 @property (nonatomic , assign) CGFloat              out_amount;
 @property (nonatomic , assign) CGFloat              in_amount;
+@property (nonatomic , copy) NSString              *capitalTypeDesc;
 
 @end
